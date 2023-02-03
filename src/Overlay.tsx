@@ -3,14 +3,14 @@ import { motion } from 'framer-motion';
 import { useRecoilState } from 'recoil';
 import { addToggleAtom } from './atom';
 
-const Overlay = () => {
+const Overlay = ({ children }: { children: React.ReactNode }) => {
   const [toggle, setToggle] = useRecoilState(addToggleAtom);
 
   const toggleHandler = () => {
     setToggle((prev) => !prev);
   };
 
-  return <Wrapper onClick={toggleHandler} />;
+  return <Wrapper onClick={toggleHandler}>{children}</Wrapper>;
 };
 
 export default Overlay;
