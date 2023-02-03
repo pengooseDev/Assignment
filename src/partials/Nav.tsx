@@ -1,7 +1,12 @@
 import styled from 'styled-components';
+import ThemeToggle from '../ThemeToggle';
 
 const Nav = () => {
-  return <Wrapper></Wrapper>;
+  return (
+    <Wrapper>
+      <ThemeToggle />
+    </Wrapper>
+  );
 };
 
 export default Nav;
