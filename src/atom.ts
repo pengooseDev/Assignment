@@ -25,3 +25,11 @@ export const isDarkAtom = atom<isDark>({
   key: 'isDarkAtom',
   default: true,
 });
+
+/* Add Toggle Atom */
+type addToggle = boolean;
+
+export const addToggleAtom = atom<addToggle>({
+  key: 'addToggleAtom',
+  default: false,
+});
