@@ -47,5 +47,5 @@ type addToggle = boolean;
 
 export const addToggleAtom = atom<addToggle>({
   key: 'addToggleAtom',
-  default: false,
+  default: true,
 });
