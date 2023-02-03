@@ -7,12 +7,12 @@
 
 ### UI / UX
 
-- [ ] Theme Toggle 구현
+- [x] Theme Toggle 구현
 
   - [ ] Theme Toggle Button 구현
     - [ ] label과 htmlFor을 이용한 커스텀 버튼으로 구현
 
-- [ ] Nav Container 구현 (floating)
+- [x] Nav Container 구현 (floating)
   - [ ] Add Intent 발생시 Input Modal창 토글
 
 ### ToDo

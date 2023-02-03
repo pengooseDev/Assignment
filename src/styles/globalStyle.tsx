@@ -64,11 +64,9 @@ const GlobalStyle = createGlobalStyle`
     border-spacing: 0;
   }
 
-  //+a reset
   a{
       text-decoration: none;
       color: inherit;
-      //default값은 inline임. display를 block으로 바꿔줌으로써, div전체가 클릭 가능해짐.
       display: block;
   }
 
