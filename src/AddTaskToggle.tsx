@@ -3,31 +3,19 @@ import { AnimatePresence, motion } from 'framer-motion';
 import Overlay from './Overlay';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { addToggleAtom, toDoDatasAtom } from './atom';
-import { useRef } from 'react';
+import { useState } from 'react';
 
 const AddTaskToggle = () => {
   const [toDoDatas, setToDoDatas] = useRecoilState(toDoDatasAtom);
   const toggle = useRecoilValue(addToggleAtom);
-  const titleRef = useRef(null);
-  const descriptionRef = useRef(null);
+  const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
 
   const submitHandler = (event: React.FormEvent) => {
     event.preventDefault();
-    const title = titleRef.current;
-    const description = descriptionRef.current;
-    if (!title || !description) return;
-
-    const titleValue = title['value'];
-    const descriptionValue = description['value'];
-
-    if (!titleValue) return;
-
     setToDoDatas((prev) => {
       const oldToDoArr = prev['toDo'];
-      const newToDoArr = [
-        ...oldToDoArr,
-        { title: titleValue, description: descriptionValue },
-      ];
+      const newToDoArr = [...oldToDoArr, { title, description }];
 
       const newToDosData = {
         ...prev,
@@ -36,6 +24,24 @@ const AddTaskToggle = () => {
 
       return newToDosData;
     });
+
+    setTitle((prev) => '');
+    setDescription((prev) => '');
+  };
+
+  const titleChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newValue = e.currentTarget.value;
+    if (!newValue) return;
+
+    setTitle((prev) => newValue);
+  };
+
+  const descriptionChangeHandler = (e: any) => {
+    const newValue = e.currentTarget.value;
+    if (!newValue) return;
+    console.log(e.currentTarget.value);
+
+    setDescription((prev) => newValue);
   };
 
   return (
@@ -46,8 +52,8 @@ const AddTaskToggle = () => {
           <Wrapper layoutId="addTask">
             <Add onClick={submitHandler}>Add</Add>
             <Form>
-              <TitleInput ref={titleRef} />
-              <DescriptionInput ref={descriptionRef} />
+              <TitleInput onChange={titleChangeHandler} />
+              <DescriptionInput onChange={descriptionChangeHandler} />
             </Form>
           </Wrapper>
         </>
