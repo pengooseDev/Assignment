@@ -1,4 +1,4 @@
-import GlobalStyle from './styles/globalStyle';
+import GlobalStyle from './utils/styles/globalStyle';
 import { ThemeProvider } from 'styled-components';
 import { darkTheme, lightTheme } from './theme';
 import { isDarkAtom } from './atom';
