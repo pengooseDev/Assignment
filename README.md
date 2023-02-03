@@ -39,4 +39,5 @@
 
 ### Fix
 
-- [ ] 컴포넌트 key추가
+- [x] 컴포넌트 key추가
+- [x] toggleAttom default 값 변경
