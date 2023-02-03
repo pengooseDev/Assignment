@@ -1,5 +1,7 @@
 import { atom, selector } from 'recoil';
+import { recoilPersist } from 'recoil-persist';
 
+const { persistAtom } = recoilPersist();
 /* ToDo Data Atom */
 interface toDoData {
   [key: string]: task[];
@@ -22,16 +24,7 @@ export const toDoDatasAtom = atom<toDoData>({
       { title: 'done2', description: 'des2' },
     ],
   },
-});
-
-export const toDoSelector = selector({
-  key: 'todos',
-  get: ({ get }) => {
-    const allTask = get(toDoDatasAtom);
-    const { toDo } = allTask;
-
-    return toDo;
-  },
+  effects_UNSTABLE: [persistAtom],
 });
 
 /* Theme Toggle Atom */
@@ -40,6 +33,7 @@ type isDark = boolean;
 export const isDarkAtom = atom<isDark>({
   key: 'isDarkAtom',
   default: true,
+  effects_UNSTABLE: [persistAtom],
 });
 
 /* Add Toggle Atom */
