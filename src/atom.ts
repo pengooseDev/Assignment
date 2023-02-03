@@ -1,5 +1,6 @@
 import { atom } from 'recoil';
 
+/* ToDo Data Atom */
 interface toDoData {
   [key: string]: task[];
 }
@@ -15,4 +16,12 @@ export const toDoAtom = atom<toDoData>({
     toDo: [],
     done: [],
   },
+});
+
+/* Theme Toggle Atom */
+type isDark = boolean;
+
+export const isDarkAtom = atom<isDark>({
+  key: 'isDarkAtom',
+  default: true,
 });
