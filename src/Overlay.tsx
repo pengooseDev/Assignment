@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { useRecoilState } from 'recoil';
 import { addToggleAtom } from './atom';
 
-const Overlay = ({ children }: { children: React.ReactNode }) => {
+const Overlay = () => {
   const [toggle, setToggle] = useRecoilState(addToggleAtom);
 
   const toggleHandler = () => {
@@ -17,9 +17,7 @@ const Overlay = ({ children }: { children: React.ReactNode }) => {
       animate="to"
       exit="exit"
       onClick={toggleHandler}
-    >
-      {children}
-    </Wrapper>
+    ></Wrapper>
   );
 };
 

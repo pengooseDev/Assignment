@@ -11,7 +11,8 @@ const AddTaskToggle = () => {
   return (
     <AnimatePresence>
       {!toggle && (
-        <Overlay>
+        <>
+          <Overlay />
           <Wrapper>
             <Add>Add</Add>
             <Form>
@@ -19,7 +20,7 @@ const AddTaskToggle = () => {
               <DescriptionInput />
             </Form>
           </Wrapper>
-        </Overlay>
+        </>
       )}
     </AnimatePresence>
   );
