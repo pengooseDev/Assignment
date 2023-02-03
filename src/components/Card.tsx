@@ -34,6 +34,27 @@ const Card = ({ data, boardKey }: CardProps) => {
     });
   };
 
+  const backHandler = () => {
+    setToDoDatas((prev) => {
+      const oldData = { ...prev };
+      const oldArr = [...oldData['done']];
+      let targetIndex;
+
+      oldArr.map((v, i) => {
+        if (v.title === title) return (targetIndex = i);
+      });
+
+      if (!targetIndex && targetIndex !== 0) return prev;
+
+      const targetTask = oldArr.splice(targetIndex, 1)[0];
+      const toDoArr = [...prev['toDo'], targetTask];
+      return {
+        toDo: toDoArr,
+        done: oldArr,
+      };
+    });
+  };
+
   return (
     <Wrapper>
       <InfoContainer>
@@ -79,7 +100,7 @@ const Card = ({ data, boardKey }: CardProps) => {
         </BtnContainer>
       ) : (
         <BtnContainer>
-          <Btn>
+          <Btn onClick={backHandler}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
