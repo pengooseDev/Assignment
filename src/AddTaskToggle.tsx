@@ -13,7 +13,7 @@ const AddTaskToggle = () => {
       {!toggle && (
         <>
           <Overlay />
-          <Wrapper>
+          <Wrapper layoutId="addTask">
             <Add>Add</Add>
             <Form>
               <TitleInput />
