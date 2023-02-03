@@ -24,6 +24,8 @@ export default Board;
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
+  gap: 0.5rem;
+  transition: ease-in-out 0.15s;
   background: ${(props) => props.theme.text};
   color: ${(props) => props.theme.background};
   border-radius: 5px;
