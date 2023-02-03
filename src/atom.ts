@@ -1,4 +1,4 @@
-import { atom } from 'recoil';
+import { atom, selector } from 'recoil';
 
 /* ToDo Data Atom */
 interface toDoData {
@@ -7,14 +7,30 @@ interface toDoData {
 
 interface task {
   title: string;
-  description: string;
+  description?: string;
 }
 
 export const toDoAtom = atom<toDoData>({
   key: 'toDoAtom',
   default: {
-    toDo: [],
-    done: [],
+    toDo: [
+      { title: 'todo1', description: 'des1' },
+      { title: 'todo2', description: 'des2' },
+    ],
+    done: [
+      { title: 'done1', description: 'des1' },
+      { title: 'done2', description: 'des2' },
+    ],
+  },
+});
+
+export const toDoSelector = selector({
+  key: 'todos',
+  get: ({ get }) => {
+    const allTask = get(toDoAtom);
+    const { toDo } = allTask;
+
+    return toDo;
   },
 });
 
