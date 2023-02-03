@@ -24,7 +24,11 @@
 
 - [ ] task 추가 기능 구현
 
-  - [ ] addToggle 구현
+  - [x] lasyout 구현
+  - [ ] atom 생성
+  - [ ] addToggle motion 구현
+  - [ ] toggle되는 컴포넌트 구현
+  - [ ] onSubmit일때 userInput을 state에 저장하기
 
 - [x] task를 받아와 렌더링 하는 재사용 가능한 컴포넌트 구현
 - [ ] task 삭제 기능 구현
