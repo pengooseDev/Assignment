@@ -1,5 +1,7 @@
 # Assignment1
 
+![2](https://user-images.githubusercontent.com/73521518/216703565-8a265f14-f85c-463b-ab19-b5b602dc93c3.PNG)
+
 ---
 
 ### 분리한 컴포넌트
