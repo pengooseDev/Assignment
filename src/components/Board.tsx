@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import Card from './Card';
 import { toDoDatasAtom } from '../atom';
 import { useRecoilValue } from 'recoil';
+import AddTask from '../AddTask';
 
 interface boardProps {
   boardKey: string;
@@ -16,6 +17,7 @@ const Board = ({ boardKey }: boardProps) => {
       {toDoDatas[boardKey].map((v) => (
         <Card data={v} />
       ))}
+      <AddTask />
     </Wrapper>
   );
 };
