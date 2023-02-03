@@ -9,8 +9,8 @@ function App() {
 
   return (
     <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
-      <div>Home</div>
       <GlobalStyle />
+      <div>Home</div>
     </ThemeProvider>
   );
 }
