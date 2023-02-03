@@ -19,8 +19,8 @@ function App() {
       <Nav />
       <Wrapper>
         <BoardContainer>
-          {Object.entries(toDoDatas).map(([key, _]) => (
-            <Board boardKey={key} />
+          {Object.entries(toDoDatas).map(([key, i]) => (
+            <Board boardKey={key} key={key + String(i)} />
           ))}
         </BoardContainer>
         <AddTaskToggle />
