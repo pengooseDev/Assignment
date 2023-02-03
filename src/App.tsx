@@ -6,18 +6,20 @@ import { useRecoilValue } from 'recoil';
 import Nav from './partials/Nav';
 import styled from 'styled-components';
 import Board from './components/Board';
+import { toDoDatasAtom } from './atom';
 
 function App() {
   const isDark = useRecoilValue(isDarkAtom);
-  const dummy = [1, 2];
+  const toDoDatas = useRecoilValue(toDoDatasAtom);
+
   return (
     <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
       <GlobalStyle />
       <Nav />
       <Wrapper>
         <BoardContainer>
-          {dummy.map((v) => (
-            <Board />
+          {Object.entries(toDoDatas).map(([key, _]) => (
+            <Board boardKey={key} />
           ))}
         </BoardContainer>
       </Wrapper>

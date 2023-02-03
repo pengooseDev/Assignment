@@ -1,8 +1,22 @@
 import styled from 'styled-components';
 import Card from './Card';
+import { toDoDatasAtom } from '../atom';
+import { useRecoilValue } from 'recoil';
 
-const Board = () => {
-  return <Wrapper>myBoard</Wrapper>;
+interface boardProps {
+  boardKey: string;
+}
+
+const Board = ({ boardKey }: boardProps) => {
+  const toDoDatas = useRecoilValue(toDoDatasAtom);
+
+  return (
+    <Wrapper>
+      {toDoDatas[boardKey].map((v) => (
+        <Card data={v} />
+      ))}
+    </Wrapper>
+  );
 };
 
 export default Board;

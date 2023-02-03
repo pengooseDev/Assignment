@@ -5,13 +5,13 @@ interface toDoData {
   [key: string]: task[];
 }
 
-interface task {
+export interface task {
   title: string;
   description?: string;
 }
 
-export const toDoAtom = atom<toDoData>({
-  key: 'toDoAtom',
+export const toDoDatasAtom = atom<toDoData>({
+  key: 'toDoDatasAtom',
   default: {
     toDo: [
       { title: 'todo1', description: 'des1' },
@@ -27,7 +27,7 @@ export const toDoAtom = atom<toDoData>({
 export const toDoSelector = selector({
   key: 'todos',
   get: ({ get }) => {
-    const allTask = get(toDoAtom);
+    const allTask = get(toDoDatasAtom);
     const { toDo } = allTask;
 
     return toDo;
