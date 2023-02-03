@@ -18,6 +18,11 @@
 ### ToDo
 
 - [ ] toDo, Done Board 구현
+
+  - [x] Layout 구현
+
 - [ ] task 추가 기능 구현
+  - [ ] addToggle 구현
+- [ ] task를 받아와 렌더링 하는 재사용 가능한 컴포넌트 구현
 - [ ] task 삭제 기능 구현
 - [ ] task 완료 상태 변경
