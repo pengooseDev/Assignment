@@ -1,12 +1,40 @@
 import styled from 'styled-components';
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import Overlay from './Overlay';
-import { useRecoilValue } from 'recoil';
-import { addToggleAtom } from './atom';
-import { AnimatePresence } from 'framer-motion';
+import { useRecoilState, useRecoilValue } from 'recoil';
+import { addToggleAtom, toDoDatasAtom } from './atom';
+import { useRef } from 'react';
 
 const AddTaskToggle = () => {
+  const [toDoDatas, setToDoDatas] = useRecoilState(toDoDatasAtom);
   const toggle = useRecoilValue(addToggleAtom);
+  const titleRef = useRef(null);
+  const descriptionRef = useRef(null);
+
+  const submitHandler = (event: React.FormEvent) => {
+    event.preventDefault();
+    const title = titleRef.current;
+    const description = descriptionRef.current;
+    if (!title || !description) return;
+
+    const titleValue = title['value'];
+    const descriptionValue = title['value'];
+
+    setToDoDatas((prev) => {
+      const oldToDoArr = prev['toDo'];
+      const newToDoArr = [
+        ...oldToDoArr,
+        { title: titleValue, description: descriptionValue },
+      ];
+
+      const newToDosData = {
+        ...prev,
+        toDo: newToDoArr,
+      };
+
+      return newToDosData;
+    });
+  };
 
   return (
     <AnimatePresence>
@@ -14,10 +42,10 @@ const AddTaskToggle = () => {
         <>
           <Overlay />
           <Wrapper layoutId="addTask">
-            <Add>Add</Add>
+            <Add onClick={submitHandler}>Add</Add>
             <Form>
-              <TitleInput />
-              <DescriptionInput />
+              <TitleInput ref={titleRef} />
+              <DescriptionInput ref={descriptionRef} />
             </Form>
           </Wrapper>
         </>
