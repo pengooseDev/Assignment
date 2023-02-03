@@ -41,3 +41,5 @@
 
 - [x] 컴포넌트 key추가
 - [x] toggleAttom default 값 변경
+- [x] preventDrag 추가
+- [x] 글자 수 많아질 때, overflow 핸들링
