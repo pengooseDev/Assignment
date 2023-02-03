@@ -1,3 +1,16 @@
+# Assignment1
+
+---
+
+### Stack
+
+- ReactJS
+- recoil
+- styled-components
+- framer-motion
+
+---
+
 # 유의사항
 
 - 컴포넌트의 재사용을 고려한다.
