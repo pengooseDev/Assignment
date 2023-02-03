@@ -18,6 +18,7 @@
 ### ToDo
 
 - [x] toDo, Done Board 구현
+- [x] board title을 렌더링한다.
 
   - [x] Layout 구현
 
