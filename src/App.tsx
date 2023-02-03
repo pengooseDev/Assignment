@@ -7,6 +7,7 @@ import Nav from './partials/Nav';
 import styled from 'styled-components';
 import Board from './components/Board';
 import { toDoDatasAtom } from './atom';
+import AddTaskToggle from './AddTaskToggle';
 
 function App() {
   const isDark = useRecoilValue(isDarkAtom);
@@ -22,6 +23,7 @@ function App() {
             <Board boardKey={key} />
           ))}
         </BoardContainer>
+        <AddTaskToggle />
       </Wrapper>
     </ThemeProvider>
   );
