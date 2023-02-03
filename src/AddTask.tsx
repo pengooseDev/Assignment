@@ -1,9 +1,17 @@
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
+import { addToggleAtom } from './atom';
+import { useRecoilState } from 'recoil';
 
 const AddTask = () => {
+  const [toggle, setToggle] = useRecoilState(addToggleAtom);
+
+  const toggleHandler = () => {
+    setToggle((prev) => !prev);
+  };
+
   return (
-    <Wrapper>
+    <Wrapper onClick={toggleHandler}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
