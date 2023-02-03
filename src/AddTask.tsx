@@ -42,7 +42,6 @@ const Wrapper = styled(motion.div)`
   background: ${({ theme }) => theme.background};
   color: ${({ theme }) => theme.text};
   opacity: 0.7;
-  transition: ease-in-out 0.1s;
   box-shadow: 0px 0px 5px rgba(111, 111, 111, 0.5);
 
   :hover {

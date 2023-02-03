@@ -3,6 +3,7 @@ import Card from './Card';
 import { toDoDatasAtom, addToggleAtom } from '../atom';
 import { useRecoilValue } from 'recoil';
 import AddTask from '../AddTask';
+import { AnimatePresence } from 'framer-motion';
 
 interface boardProps {
   boardKey: string;
@@ -18,7 +19,9 @@ const Board = ({ boardKey }: boardProps) => {
       {toDoDatas[boardKey].map((v) => (
         <Card data={v} />
       ))}
-      {toggle && <AddTask />}
+      <AnimatePresence>
+        {toggle && boardKey === 'toDo' && <AddTask />}
+      </AnimatePresence>
     </Wrapper>
   );
 };
