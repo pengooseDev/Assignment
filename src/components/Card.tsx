@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { task } from '../atom';
+import { toDoDatasAtom } from '../atom';
+import { useRecoilState } from 'recoil';
 
 interface CardProps {
   data: task;
@@ -8,7 +10,29 @@ interface CardProps {
 }
 
 const Card = ({ data, boardKey }: CardProps) => {
+  const [toDoDatas, setToDoDatas] = useRecoilState(toDoDatasAtom);
   const { title, description } = data;
+
+  const doneHandler = () => {
+    setToDoDatas((prev) => {
+      const oldData = { ...prev };
+      const oldArr = [...oldData['toDo']];
+      let targetIndex;
+
+      oldArr.map((v, i) => {
+        if (v.title === title) return (targetIndex = i);
+      });
+
+      if (!targetIndex && targetIndex !== 0) return prev;
+
+      const targetTask = oldArr.splice(targetIndex, 1)[0];
+      const doneArr = [...prev['done'], targetTask];
+      return {
+        toDo: oldArr,
+        done: doneArr,
+      };
+    });
+  };
 
   return (
     <Wrapper>
@@ -18,7 +42,7 @@ const Card = ({ data, boardKey }: CardProps) => {
       </InfoContainer>
       {boardKey === 'toDo' ? (
         <BtnContainer>
-          <Btn>
+          <Btn onClick={doneHandler}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
