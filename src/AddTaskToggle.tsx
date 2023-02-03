@@ -103,6 +103,5 @@ const DescriptionInput = styled.textarea.attrs({
 const Form = styled.form`
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.3);
   margin-left: 15px;
 `;
