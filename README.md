@@ -13,7 +13,7 @@
     - [x] label과 htmlFor을 이용한 커스텀 버튼으로 구현
 
 - [x] Nav Container 구현 (floating)
-  - [ ] Add Intent 발생시 Input Modal창 토글
+  - [x] Add Intent 발생시 Input Modal창 토글
 
 ### ToDo
 
@@ -34,8 +34,8 @@
   - [x] onSubmit일때 userInput을 state에 저장하기
 
 - [x] task를 받아와 렌더링 하는 재사용 가능한 컴포넌트 구현
-- [ ] task 삭제 기능 구현
-- [ ] task 완료 상태 변경
+- [x] task 삭제 기능 구현
+- [x] task 완료 상태 변경
 
 ### Fix
 
