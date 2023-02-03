@@ -3,12 +3,13 @@ import { motion } from 'framer-motion';
 import Overlay from './Overlay';
 import { useRecoilValue } from 'recoil';
 import { addToggleAtom } from './atom';
+import { AnimatePresence } from 'framer-motion';
 
 const AddTaskToggle = () => {
   const toggle = useRecoilValue(addToggleAtom);
 
   return (
-    <>
+    <AnimatePresence>
       {!toggle && (
         <Overlay>
           <Wrapper>
@@ -20,7 +21,7 @@ const AddTaskToggle = () => {
           </Wrapper>
         </Overlay>
       )}
-    </>
+    </AnimatePresence>
   );
 };
 

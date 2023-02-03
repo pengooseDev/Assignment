@@ -10,7 +10,17 @@ const Overlay = ({ children }: { children: React.ReactNode }) => {
     setToggle((prev) => !prev);
   };
 
-  return <Wrapper onClick={toggleHandler}>{children}</Wrapper>;
+  return (
+    <Wrapper
+      variants={overlayVariants}
+      initial="from"
+      animate="to"
+      exit="exit"
+      onClick={toggleHandler}
+    >
+      {children}
+    </Wrapper>
+  );
 };
 
 export default Overlay;
@@ -23,3 +33,19 @@ const Wrapper = styled(motion.div)`
   width: 100vw;
   height: 100vh;
 `;
+
+const overlayVariants = {
+  from: {
+    opacity: 0,
+  },
+
+  to: {
+    opacity: 1,
+    transition: { duration: 0.15 },
+  },
+
+  exit: {
+    opacity: 0,
+    transition: { duration: 0.15 },
+  },
+};
