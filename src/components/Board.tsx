@@ -38,6 +38,7 @@ const Wrapper = styled.div`
   border-radius: 5px;
   padding: 15px;
   height: 100%;
+  overflow: auto;
 `;
 
 const Title = styled.div`
