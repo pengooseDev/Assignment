@@ -55,6 +55,27 @@ const Card = ({ data, boardKey }: CardProps) => {
     });
   };
 
+  const deleteHandler = () => {
+    setToDoDatas((prev) => {
+      const oldData = { ...prev };
+      const oldArr = [...oldData[boardKey]];
+      let targetIndex;
+
+      oldArr.map((v, i) => {
+        if (v.title === title) return (targetIndex = i);
+      });
+
+      if (!targetIndex && targetIndex !== 0) return prev;
+
+      oldArr.splice(targetIndex, 1);
+
+      return {
+        ...prev,
+        [boardKey]: oldArr,
+      };
+    });
+  };
+
   return (
     <Wrapper>
       <InfoContainer>
@@ -80,7 +101,7 @@ const Card = ({ data, boardKey }: CardProps) => {
               />
             </svg>
           </Btn>
-          <Btn>
+          <Btn onClick={deleteHandler}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -117,7 +138,7 @@ const Card = ({ data, boardKey }: CardProps) => {
               />
             </svg>
           </Btn>
-          <Btn>
+          <Btn onClick={deleteHandler}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
