@@ -1,12 +1,10 @@
 import styled from 'styled-components';
 import ThemeToggle from '../ThemeToggle';
-import AddIcon from '../icons/AddIcon';
 
 const Nav = () => {
   return (
     <Wrapper>
       <ThemeToggle />
-      <AddIcon />
     </Wrapper>
   );
 };
