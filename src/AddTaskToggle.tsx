@@ -1,16 +1,25 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
+import Overlay from './Overlay';
+import { useRecoilValue } from 'recoil';
+import { addToggleAtom } from './atom';
 
 const AddTaskToggle = () => {
+  const toggle = useRecoilValue(addToggleAtom);
+
   return (
     <>
-      <Wrapper>
-        <Add>Add</Add>
-        <Form>
-          <TitleInput />
-          <DescriptionInput />
-        </Form>
-      </Wrapper>
+      {!toggle && (
+        <Overlay>
+          <Wrapper>
+            <Add>Add</Add>
+            <Form>
+              <TitleInput />
+              <DescriptionInput />
+            </Form>
+          </Wrapper>
+        </Overlay>
+      )}
     </>
   );
 };
