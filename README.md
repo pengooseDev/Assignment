@@ -31,8 +31,12 @@
     - [x] Overlay 생성
     - [x] Overlay motion 생성
     - [x] modal 컴포넌트 변경 motion 구현
-  - [ ] onSubmit일때 userInput을 state에 저장하기
+  - [x] onSubmit일때 userInput을 state에 저장하기
 
 - [x] task를 받아와 렌더링 하는 재사용 가능한 컴포넌트 구현
 - [ ] task 삭제 기능 구현
 - [ ] task 완료 상태 변경
+
+### Fix
+
+- [ ] 컴포넌트 key추가
