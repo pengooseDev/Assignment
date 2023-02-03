@@ -12,6 +12,7 @@ const Board = ({ boardKey }: boardProps) => {
 
   return (
     <Wrapper>
+      <div>123</div>
       {toDoDatas[boardKey].map((v) => (
         <Card data={v} />
       ))}
