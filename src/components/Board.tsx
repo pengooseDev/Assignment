@@ -12,7 +12,7 @@ const Board = ({ boardKey }: boardProps) => {
 
   return (
     <Wrapper>
-      <div>123</div>
+      <Title>{boardKey}</Title>
       {toDoDatas[boardKey].map((v) => (
         <Card data={v} />
       ))}
@@ -32,4 +32,15 @@ const Wrapper = styled.div`
   border-radius: 5px;
   padding: 15px;
   height: 100%;
+`;
+
+const Title = styled.div`
+  background: ${({ theme }) => theme.text};
+  color: ${({ theme }) => theme.background};
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: 600;
+  font-size: 20px;
+  transition: ease-in-out 0.15s;
+  opacity: 0.9;
 `;
