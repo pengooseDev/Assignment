@@ -18,7 +18,9 @@ const AddTaskToggle = () => {
     if (!title || !description) return;
 
     const titleValue = title['value'];
-    const descriptionValue = title['value'];
+    const descriptionValue = description['value'];
+
+    if (!titleValue) return;
 
     setToDoDatas((prev) => {
       const oldToDoArr = prev['toDo'];
