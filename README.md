@@ -26,9 +26,11 @@
 
   - [x] layout 구현
   - [x] atom 생성
-  - [ ] addToggle mount / unMount motion 구현
+  - [x] addToggle mount / unMount motion 구현
   - [x] toggle되는 modal 컴포넌트 구현
     - [x] Overlay 생성
+    - [x] Overlay motion 생성
+    - [ ] modal 컴포넌트 변경 motion 구현
   - [ ] onSubmit일때 userInput을 state에 저장하기
 
 - [x] task를 받아와 렌더링 하는 재사용 가능한 컴포넌트 구현
