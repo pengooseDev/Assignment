@@ -51,9 +51,12 @@ const AddTaskToggle = () => {
           <Overlay />
           <Wrapper layoutId="addTask">
             <Add onClick={submitHandler}>Add</Add>
-            <Form>
-              <TitleInput onChange={titleChangeHandler} />
-              <DescriptionInput onChange={descriptionChangeHandler} />
+            <Form onSubmit={submitHandler}>
+              <TitleInput onChange={titleChangeHandler} value={title} />
+              <DescriptionInput
+                onChange={descriptionChangeHandler}
+                value={description}
+              />
             </Form>
           </Wrapper>
         </>
