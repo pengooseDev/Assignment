@@ -39,7 +39,6 @@ const AddTaskToggle = () => {
   const descriptionChangeHandler = (e: any) => {
     const newValue = e.currentTarget.value;
     if (!newValue) return;
-    console.log(e.currentTarget.value);
 
     setDescription((prev) => newValue);
   };
