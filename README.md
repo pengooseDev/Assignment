@@ -28,16 +28,16 @@ Card.tsx : 각 Board가 갖는 task를 렌더링하는 컴포넌트.
 
   - [ ] Ducks 패턴 이용
 
-- [ ] react-router-dom을 이용한 task별 페이지 구현.
+- [x] react-router-dom을 이용한 task별 페이지 구현.
 
   - [x] Router 및 환경 구현.
   - [x] Card 컴포넌트에서 동적 라우팅을 위한 Link 추가.
-  - [ ] input에 값이 있는 상태에서 상세페이지로 이동하는 경우, input의 value가 초기화 되도록 구현.
+  - [x] input에 값이 있는 상태에서 상세페이지로 이동하는 경우, input의 value가 초기화 되도록 구현.
 
-- [ ] detail page
+- [x] detail page
 
   - [x] 이전으로 돌아가기 버튼 만들기.
-  - [ ] layout구현
+  - [x] layout구현
   - [x] 아래의 값 렌더링
     - [x] Todo의 ID / Todo의 제목 / Todo의 내용
     - [x] `이전으로` 버튼(리스트 화면으로)
