@@ -17,7 +17,7 @@ const AddTaskToggle = () => {
       const oldToDoArr = prev['toDo'];
       const newToDoArr = [
         ...oldToDoArr,
-        { title, description, id: String(new Date()) },
+        { title, description, id: new Date().getTime() },
       ];
 
       const newToDosData = {
