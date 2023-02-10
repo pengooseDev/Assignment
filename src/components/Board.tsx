@@ -17,7 +17,7 @@ const Board = ({ boardKey }: boardProps) => {
     <Wrapper>
       <Title>{boardKey}</Title>
       {toDoDatas[boardKey].map((v, i) => (
-        <Card data={v} boardKey={boardKey} key={v + String(i)} />
+        <Card data={v} boardKey={boardKey} key={v.id} />
       ))}
       <AnimatePresence>
         {toggle && boardKey === 'toDo' && <AddTask />}
