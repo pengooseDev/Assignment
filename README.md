@@ -41,6 +41,9 @@ Card.tsx : 각 Board가 갖는 task를 렌더링하는 컴포넌트.
   - [ ] 아래의 값 렌더링
     - [ ] Todo의 ID / Todo의 제목 / Todo의 내용
     - [ ] `이전으로` 버튼(리스트 화면으로)
+  - [ ] Nav 컴포넌트에 home키 추가
+    - [ ] useMatch 사용해서 "/"인 경우엔 렌더링 X
+    - [ ] mount / unMount 자연스러운 motion 구현
 
 - [ ] 추가적인 기능 구현
   - [ ] nestedRouter를 이용한 SPA 구현
