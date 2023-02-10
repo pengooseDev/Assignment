@@ -15,7 +15,10 @@ const AddTaskToggle = () => {
     event.preventDefault();
     setToDoDatas((prev) => {
       const oldToDoArr = prev['toDo'];
-      const newToDoArr = [...oldToDoArr, { title, description }];
+      const newToDoArr = [
+        ...oldToDoArr,
+        { title, description, id: new Date() },
+      ];
 
       const newToDosData = {
         ...prev,

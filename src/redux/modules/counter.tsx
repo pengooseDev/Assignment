@@ -4,8 +4,6 @@
 // const INCREASE_BY = 'counter/INCREASE_BY' as const;
 
 /* Action types */
-import ErrorPage from './src/pages/Error';
-
 const INCREASE = 'couter/INCREASE' as const;
 const DECREASE = 'counter/DECREASE' as const;
 const INCREASE_BY = 'counter/INCREASE_BY' as const;
