@@ -4,7 +4,7 @@ import { recoilPersist } from 'recoil-persist';
 const { persistAtom } = recoilPersist();
 /* ToDo Data Atom */
 interface toDoData {
-  [key: string]: [] | task[];
+  [key: string]: task[] | [];
 }
 
 export interface task {
