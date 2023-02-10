@@ -2,10 +2,9 @@ import styled from 'styled-components';
 import { useParams } from 'react-router-dom';
 
 const Detail = () => {
-  const { params } = useParams();
+  const { taskId } = useParams();
 
-  console.log(params);
-  return <>detail</>;
+  return <>TaskID : {taskId}</>;
 };
 
 export default Detail;
