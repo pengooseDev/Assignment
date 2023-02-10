@@ -27,7 +27,6 @@ Card.tsx : 각 Board가 갖는 task를 렌더링하는 컴포넌트.
 - [ ] Recoil에서 Redux로 migration
 
   - [ ] Ducks 패턴 이용
-  - [ ]
 
 - [ ] react-router-dom을 이용한 task별 페이지 구현.
 
