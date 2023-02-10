@@ -38,16 +38,21 @@ Card.tsx : 각 Board가 갖는 task를 렌더링하는 컴포넌트.
 
   - [x] 이전으로 돌아가기 버튼 만들기.
   - [ ] layout구현
-  - [ ] 아래의 값 렌더링
+  - [x] 아래의 값 렌더링
     - [x] Todo의 ID / Todo의 제목 / Todo의 내용
     - [x] `이전으로` 버튼(리스트 화면으로)
   - [x] Nav 컴포넌트에 home키 추가
-    - [ ] useMatch 사용해서 "/"인 경우엔 렌더링 X
+    - [x] useMatch 사용해서 "/"인 경우엔 렌더링 X
     - [x] mount / unMount 자연스러운 motion 구현
 
-- [ ] 추가적인 기능 구현
+- 추가적인 기능 구현
+
   - [ ] nestedRouter를 이용한 SPA 구현
   - [ ] react-hook-form migration
+
+- 고민할 사항
+  - [ ] Route가 바뀌는 상황에서 Animation이 끊기는 것은 어떻게 처리할 것인가?
+    - [ ] SPA로 구현 말고는 답 없지않나? 흠..
 
 ---
 
