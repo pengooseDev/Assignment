@@ -2,12 +2,15 @@ import styled from 'styled-components';
 import ThemeToggle from './ThemeToggle';
 import Home from './Home';
 import { useMatch } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
 
 const Nav = () => {
+  const isHome = !!useMatch('/');
+
   return (
     <Wrapper>
       <ThemeToggle />
-      <Home />
+      <AnimatePresence>{!isHome && <Home />}</AnimatePresence>
     </Wrapper>
   );
 };
