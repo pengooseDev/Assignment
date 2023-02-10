@@ -17,7 +17,32 @@ Card.tsx : 각 Board가 갖는 task를 렌더링하는 컴포넌트.
 - 컴포넌트의 재사용을 고려한다.
 - User의 Intent에 따른 State와 View 변화에 집중
 
-# 기능 명세서
+# 2차 기능 명세서
+
+- [x] 각 task를 관리하는 Unique한 id 사용하도록 변경.
+
+  - [x] new Date를 사용
+  - [x] inferface 및 Type 수정.
+
+- [ ] Recoil에서 Redux로 migration
+
+  - [ ] Ducks 패턴 이용
+  - [ ]
+
+- [ ] react-router-dom을 이용한 task별 페이지 구현.
+
+  - [ ] Router 및 환경 구현.
+  - [ ] Card 컴포넌트에서 동적 라우팅을 위한 Link 추가.
+  - [ ] input에 값이 있는 상태에서 상세페이지로 이동하는 경우, input의 value가 초기화 되도록 구현.
+  - [ ] +a : nestedRoute를 이용한 SPA 구현
+
+- [ ] detail page
+  - [ ] 이전으로 돌아가기 버튼 만들기.
+  - [ ] layout구현
+
+---
+
+# 1차 기능 명세서
 
 ### UI / UX
 
