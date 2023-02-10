@@ -78,7 +78,7 @@ const Card = ({ data, boardKey }: CardProps) => {
   };
 
   return (
-    <Link to={`/${data.id}`}>
+    <Link to={`/${data.id}/detail`}>
       <Wrapper>
         <InfoContainer>
           <Title>{title}</Title>
