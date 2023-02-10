@@ -10,13 +10,13 @@ interface toDoData {
 export interface task {
   title: string;
   description?: string;
-  id: string;
+  id: number;
 }
 
 export const toDoDatasAtom = atom<toDoData>({
   key: 'toDoDatasAtom',
   default: {
-    toDo: [{ title: 'todo1', description: 'des1', id: String(new Date()) }],
+    toDo: [{ title: 'todo1', description: 'des1', id: new Date().getTime() }],
     done: [],
   },
   effects_UNSTABLE: [persistAtom],
