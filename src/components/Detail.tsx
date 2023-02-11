@@ -1,7 +1,5 @@
 import { useParams } from 'react-router-dom';
-import { useRecoilValue } from 'recoil';
 import styled from 'styled-components';
-import { toDoDatasAtom } from '../atom';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { RootState } from '../redux/modules/index';
