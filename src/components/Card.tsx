@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { task } from '../atom';
-import { toDoDatasAtom } from '../atom';
-import { useRecoilState } from 'recoil';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { done, discard, remove } from '../redux/modules/toDoDatas';
@@ -14,7 +12,6 @@ interface CardProps {
 
 const Card = ({ data, boardKey }: CardProps) => {
   const dispatch = useDispatch();
-  const [toDoDatas, setToDoDatas] = useRecoilState(toDoDatasAtom);
   const { title, description, id } = data;
 
   const doneHandler = () => {
