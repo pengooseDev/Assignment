@@ -19,6 +19,7 @@ interface discardPayload {
 
 interface removePayload {
   idRemove: number;
+  removeBoardKey: string;
 }
 
 /* Actions */
@@ -32,9 +33,9 @@ export const discard = ({ idDiscard }: discardPayload) => ({
   payload: { idDiscard },
 });
 
-export const remove = ({ idRemove }: removePayload) => ({
-  type: remove,
-  payload: { idRemove },
+export const remove = ({ idRemove, removeBoardKey }: removePayload) => ({
+  type: REMOVE,
+  payload: { idRemove, removeBoardKey },
 });
 
 export const addBy = ({ text, description }: addPayload) => ({
@@ -116,7 +117,24 @@ const toDoReducer = (state: toDoState = initialToDos, action: ToDosAction) => {
       };
 
     case REMOVE:
-      return { te: 1 };
+      const {
+        payload: { idRemove, removeBoardKey },
+      } = action;
+      const oldRemoveData = { ...state };
+      const oldRemoveArr = [...oldRemoveData[removeBoardKey]];
+      let targetIndex;
+
+      oldRemoveArr.map((v, i) => {
+        if (v.id === idRemove) return (targetIndex = i);
+      });
+
+      if (!targetIndex && targetIndex !== 0) return state;
+      oldRemoveArr.splice(targetIndex, 1);
+
+      return {
+        ...state,
+        [removeBoardKey]: oldRemoveArr,
+      };
 
     case ADD_BY:
       return { te: 1 };

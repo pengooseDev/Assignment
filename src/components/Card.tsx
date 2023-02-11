@@ -5,7 +5,7 @@ import { toDoDatasAtom } from '../atom';
 import { useRecoilState } from 'recoil';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { done, discard } from '../redux/modules/toDoDatas';
+import { done, discard, remove } from '../redux/modules/toDoDatas';
 
 interface CardProps {
   data: task;
@@ -14,7 +14,6 @@ interface CardProps {
 
 const Card = ({ data, boardKey }: CardProps) => {
   const dispatch = useDispatch();
-
   const [toDoDatas, setToDoDatas] = useRecoilState(toDoDatasAtom);
   const { title, description, id } = data;
 
@@ -26,25 +25,8 @@ const Card = ({ data, boardKey }: CardProps) => {
     dispatch(discard({ idDiscard: id }));
   };
 
-  const deleteHandler = () => {
-    setToDoDatas((prev) => {
-      const oldData = { ...prev };
-      const oldArr = [...oldData[boardKey]];
-      let targetIndex;
-
-      oldArr.map((v, i) => {
-        if (v.title === title) return (targetIndex = i);
-      });
-
-      if (!targetIndex && targetIndex !== 0) return prev;
-
-      oldArr.splice(targetIndex, 1);
-
-      return {
-        ...prev,
-        [boardKey]: oldArr,
-      };
-    });
+  const removeHandler = () => {
+    dispatch(remove({ idRemove: id, removeBoardKey: boardKey }));
   };
 
   return (
@@ -74,7 +56,7 @@ const Card = ({ data, boardKey }: CardProps) => {
               />
             </svg>
           </Btn>
-          <Btn onClick={deleteHandler}>
+          <Btn onClick={removeHandler}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -111,7 +93,7 @@ const Card = ({ data, boardKey }: CardProps) => {
               />
             </svg>
           </Btn>
-          <Btn onClick={deleteHandler}>
+          <Btn onClick={removeHandler}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
