@@ -16,6 +16,7 @@ const Card = ({ data, boardKey }: CardProps) => {
   const toDoReduxData = useSelector((state: RootState) => {
     console.log(state.counter);
   });
+
   const [toDoDatas, setToDoDatas] = useRecoilState(toDoDatasAtom);
   const { title, description } = data;
 

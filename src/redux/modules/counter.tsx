@@ -1,8 +1,3 @@
-// /* 0. Action Type */
-// const INCREASE = 'counter/INCREASE' as const;
-// const DECREASE = 'counter/DECREASE' as const;
-// const INCREASE_BY = 'counter/INCREASE_BY' as const;
-
 /* Action types */
 const INCREASE = 'couter/INCREASE' as const;
 const DECREASE = 'counter/DECREASE' as const;

@@ -3,7 +3,10 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import { RecoilRoot } from 'recoil';
 import { Provider } from 'react-redux';
-import store from './redux/config/configStore';
+import rootReducer from './redux/modules/index';
+import { createStore } from 'redux';
+
+const store = createStore(rootReducer);
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
