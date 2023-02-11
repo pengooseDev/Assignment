@@ -17,14 +17,13 @@ const Board = ({ boardKey }: boardProps) => {
     (state: RootState) => state.toDoReducer
   );
   const toggle = useRecoilValue(addToggleAtom);
-  //console.log('!!', toDoDatas);
 
   return (
     <Wrapper>
       <Title>{boardKey}</Title>
-      {/* {toDoDatas[boardKey].map((v, i) => (
+      {toDoDatas[boardKey].map((v, i) => (
         <Card data={v} boardKey={boardKey} key={v.id} />
-      ))} */}
+      ))}
       <AnimatePresence>
         {toggle && boardKey === 'toDo' && <AddTask />}
       </AnimatePresence>
