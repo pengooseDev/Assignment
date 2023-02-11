@@ -4,29 +4,19 @@ import Overlay from './Overlay';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { addToggleAtom, toDoDatasAtom } from './atom';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { add } from './redux/modules/toDoDatas';
 
 const AddTaskToggle = () => {
   const [toDoDatas, setToDoDatas] = useRecoilState(toDoDatasAtom);
   const toggle = useRecoilValue(addToggleAtom);
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
+  const dispatch = useDispatch();
 
   const submitHandler = (event: React.FormEvent) => {
     event.preventDefault();
-    setToDoDatas((prev) => {
-      const oldToDoArr = prev['toDo'];
-      const newToDoArr = [
-        ...oldToDoArr,
-        { title, description, id: new Date().getTime() },
-      ];
-
-      const newToDosData = {
-        ...prev,
-        toDo: newToDoArr,
-      };
-
-      return newToDosData;
-    });
+    dispatch(add({ addTitle: title, addDescription: description }));
 
     setTitle((prev) => '');
     setDescription((prev) => '');

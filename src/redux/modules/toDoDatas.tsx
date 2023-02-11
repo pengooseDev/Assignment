@@ -2,11 +2,11 @@
 const DONE = 'couter/DONE' as const;
 const DISCARD = 'counter/DISCARD' as const;
 const REMOVE = 'counter/REMOVE' as const;
-const ADD_BY = 'counter/ADD_BY' as const;
+const ADD = 'counter/ADD' as const;
 
 interface addPayload {
-  text: string;
-  description: string;
+  addTitle: string;
+  addDescription: string;
 }
 
 interface donePayload {
@@ -38,9 +38,9 @@ export const remove = ({ idRemove, removeBoardKey }: removePayload) => ({
   payload: { idRemove, removeBoardKey },
 });
 
-export const addBy = ({ text, description }: addPayload) => ({
-  type: ADD_BY,
-  payload: { text, description },
+export const add = ({ addTitle, addDescription }: addPayload) => ({
+  type: ADD,
+  payload: { addTitle, addDescription },
 });
 
 /* Types */
@@ -48,7 +48,7 @@ type ToDosAction =
   | ReturnType<typeof done>
   | ReturnType<typeof discard>
   | ReturnType<typeof remove>
-  | ReturnType<typeof addBy>;
+  | ReturnType<typeof add>;
 
 export interface task {
   title: string;
@@ -136,8 +136,27 @@ const toDoReducer = (state: toDoState = initialToDos, action: ToDosAction) => {
         [removeBoardKey]: oldRemoveArr,
       };
 
-    case ADD_BY:
-      return { te: 1 };
+    case ADD:
+      const {
+        payload: { addTitle, addDescription },
+      } = action;
+
+      const oldToDoArr = state['toDo'];
+      const newToDoArr = [
+        ...oldToDoArr,
+        {
+          title: addTitle,
+          description: addDescription,
+          id: new Date().getTime(),
+        },
+      ];
+
+      const newToDosData = {
+        ...state,
+        toDo: newToDoArr,
+      };
+
+      return newToDosData;
 
     default:
       return state;
