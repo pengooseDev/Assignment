@@ -16,10 +16,10 @@ const Card = ({ data, boardKey }: CardProps) => {
   const dispatch = useDispatch();
 
   const [toDoDatas, setToDoDatas] = useRecoilState(toDoDatasAtom);
-  const { title, description } = data;
+  const { title, description, id } = data;
 
   const doneHandler = () => {
-    dispatch(done({ title }));
+    dispatch(done({ id }));
   };
 
   const backHandler = () => {

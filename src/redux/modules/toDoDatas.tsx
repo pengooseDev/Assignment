@@ -10,16 +10,23 @@ interface addPayload {
 }
 
 interface donePayload {
-  title: string;
+  id: number;
+}
+
+interface removePayload {
+  id: number;
 }
 
 /* Actions */
-export const done = ({ title }: donePayload) => ({
+export const done = ({ id }: donePayload) => ({
   type: DONE,
-  payload: { title },
+  payload: { id },
 });
 export const discard = () => ({ type: DISCARD });
-export const remove = () => ({ type: remove });
+export const remove = ({ id }: removePayload) => ({
+  type: remove,
+  payload: { id },
+});
 export const addBy = ({ text, description }: addPayload) => ({
   type: ADD_BY,
   payload: { text, description },
@@ -58,14 +65,14 @@ const toDoReducer = (state: toDoState = initialToDos, action: ToDosAction) => {
   switch (action.type) {
     case DONE:
       const {
-        payload: { title },
+        payload: { id },
       } = action;
       const oldData = { ...state };
       const oldArr = [...oldData['toDo']];
       let targetIndex;
 
       oldArr.map((v, i) => {
-        if (v.title === title) return (targetIndex = i);
+        if (v.id === id) return (targetIndex = i);
       });
 
       if (!targetIndex && targetIndex !== 0) return state;
