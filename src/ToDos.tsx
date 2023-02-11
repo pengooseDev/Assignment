@@ -1,11 +1,14 @@
 import styled from 'styled-components';
-import { toDoDatasAtom } from './atom';
-import { useRecoilValue } from 'recoil';
 import Board from './components/Board';
 import AddTaskToggle from './AddTaskToggle';
+import { useSelector } from 'react-redux';
+import { RootState } from './redux/modules/index';
+import { toDoState } from './redux/modules/toDoDatas';
 
 const Todos = () => {
-  const toDoDatas = useRecoilValue(toDoDatasAtom);
+  const toDoDatas: toDoState = useSelector(
+    (state: RootState) => state.toDoReducer
+  );
 
   return (
     <Wrapper>

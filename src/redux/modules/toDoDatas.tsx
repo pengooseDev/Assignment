@@ -38,7 +38,7 @@ export interface task {
   id: number;
 }
 
-interface toDoState {
+export interface toDoState {
   toDo: task[] | [];
   done: task[] | [];
 }

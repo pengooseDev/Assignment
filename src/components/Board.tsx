@@ -1,24 +1,30 @@
 import styled from 'styled-components';
 import Card from './Card';
-import { toDoDatasAtom, addToggleAtom } from '../atom';
+import { addToggleAtom } from '../atom';
 import { useRecoilValue } from 'recoil';
 import AddTask from '../AddTask';
 import { AnimatePresence } from 'framer-motion';
+import { useSelector } from 'react-redux';
+import { RootState } from '../redux/modules';
+import { toDoState } from '../redux/modules/toDoDatas';
 
 interface boardProps {
   boardKey: string;
 }
 
 const Board = ({ boardKey }: boardProps) => {
+  const toDoDatas: toDoState = useSelector(
+    (state: RootState) => state.toDoReducer
+  );
   const toggle = useRecoilValue(addToggleAtom);
-  const toDoDatas = useRecoilValue(toDoDatasAtom);
+  //console.log('!!', toDoDatas);
 
   return (
     <Wrapper>
       <Title>{boardKey}</Title>
-      {toDoDatas[boardKey].map((v, i) => (
+      {/* {toDoDatas[boardKey].map((v, i) => (
         <Card data={v} boardKey={boardKey} key={v.id} />
-      ))}
+      ))} */}
       <AnimatePresence>
         {toggle && boardKey === 'toDo' && <AddTask />}
       </AnimatePresence>
