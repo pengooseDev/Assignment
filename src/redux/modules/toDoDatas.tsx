@@ -39,8 +39,7 @@ export interface task {
 }
 
 export interface toDoState {
-  toDo: task[] | [];
-  done: task[] | [];
+  [key: string]: task[] | [];
 }
 
 /* 1. Initial State */
