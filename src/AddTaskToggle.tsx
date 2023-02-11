@@ -1,14 +1,13 @@
 import styled from 'styled-components';
 import { AnimatePresence, motion } from 'framer-motion';
 import Overlay from './Overlay';
-import { useRecoilState, useRecoilValue } from 'recoil';
-import { addToggleAtom, toDoDatasAtom } from './atom';
+import { useRecoilValue } from 'recoil';
+import { addToggleAtom } from './atom';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { add } from './redux/modules/toDoDatas';
 
 const AddTaskToggle = () => {
-  const [toDoDatas, setToDoDatas] = useRecoilState(toDoDatasAtom);
   const toggle = useRecoilValue(addToggleAtom);
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
