@@ -24,9 +24,9 @@ Card.tsx : 각 Board가 갖는 task를 렌더링하는 컴포넌트.
   - [x] new Date를 사용
   - [x] inferface 및 Type 수정.
 
-- [ ] Recoil에서 Redux로 migration
+- [x] Recoil에서 Redux로 migration
 
-  - [ ] Ducks 패턴 이용
+  - [x] Ducks 패턴 이용
 
 - [x] react-router-dom을 이용한 task별 페이지 구현.
 
@@ -44,15 +44,6 @@ Card.tsx : 각 Board가 갖는 task를 렌더링하는 컴포넌트.
   - [x] Nav 컴포넌트에 home키 추가
     - [x] useMatch 사용해서 "/"인 경우엔 렌더링 X
     - [x] mount / unMount 자연스러운 motion 구현
-
-- 추가적인 기능 구현
-
-  - [ ] nestedRouter를 이용한 SPA 구현
-  - [ ] react-hook-form migration
-
-- 고민할 사항
-  - [ ] Route가 바뀌는 상황에서 Animation이 끊기는 것은 어떻게 처리할 것인가?
-    - [ ] SPA로 구현 말고는 답 없지않나? 흠..
 
 ---
 
