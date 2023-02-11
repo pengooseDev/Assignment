@@ -3,10 +3,13 @@ import { useRecoilValue } from 'recoil';
 import styled from 'styled-components';
 import { toDoDatasAtom } from '../atom';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { RootState } from '../redux/modules/index';
+import { toDoState } from '../redux/modules/toDoDatas';
 
 const Detail = () => {
+  const toDos: toDoState = useSelector((state: RootState) => state.toDoReducer);
   const { taskId } = useParams();
-  const toDos = useRecoilValue(toDoDatasAtom);
   const task = Object.entries(toDos)
     .map(([_, board]) => board.filter((task) => task.id === Number(taskId)))
     .flat()[0];
