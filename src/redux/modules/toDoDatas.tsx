@@ -10,23 +10,33 @@ interface addPayload {
 }
 
 interface donePayload {
-  id: number;
+  idDone: number;
+}
+
+interface discardPayload {
+  idDiscard: number;
 }
 
 interface removePayload {
-  id: number;
+  idRemove: number;
 }
 
 /* Actions */
-export const done = ({ id }: donePayload) => ({
+export const done = ({ idDone }: donePayload) => ({
   type: DONE,
-  payload: { id },
+  payload: { idDone },
 });
-export const discard = () => ({ type: DISCARD });
-export const remove = ({ id }: removePayload) => ({
+
+export const discard = ({ idDiscard }: discardPayload) => ({
+  type: DISCARD,
+  payload: { idDiscard },
+});
+
+export const remove = ({ idRemove }: removePayload) => ({
   type: remove,
-  payload: { id },
+  payload: { idRemove },
 });
+
 export const addBy = ({ text, description }: addPayload) => ({
   type: ADD_BY,
   payload: { text, description },
@@ -65,27 +75,45 @@ const toDoReducer = (state: toDoState = initialToDos, action: ToDosAction) => {
   switch (action.type) {
     case DONE:
       const {
-        payload: { id },
+        payload: { idDone },
       } = action;
-      const oldData = { ...state };
-      const oldArr = [...oldData['toDo']];
-      let targetIndex;
+      const oldDoneData = { ...state };
+      const oldDoneArr = [...oldDoneData['toDo']];
+      let targetDoneIndex;
 
-      oldArr.map((v, i) => {
-        if (v.id === id) return (targetIndex = i);
+      oldDoneArr.map((v, i) => {
+        if (v.id === idDone) return (targetDoneIndex = i);
       });
 
-      if (!targetIndex && targetIndex !== 0) return state;
+      if (!targetDoneIndex && targetDoneIndex !== 0) return state;
 
-      const targetTask = oldArr.splice(targetIndex, 1)[0];
-      const doneArr = [...state['done'], targetTask];
+      const targetDoneTask = oldDoneArr.splice(targetDoneIndex, 1)[0];
+      const doneArr = [...state['done'], targetDoneTask];
       return {
-        toDo: oldArr,
+        toDo: oldDoneArr,
         done: doneArr,
       };
 
     case DISCARD:
-      return { te: 1 };
+      const {
+        payload: { idDiscard },
+      } = action;
+      const oldDiscardData = { ...state };
+      const oldDiscardArr = [...oldDiscardData['done']];
+      let targetDiscardIndex;
+
+      oldDiscardArr.map((v, i) => {
+        if (v.id === idDiscard) return (targetDiscardIndex = i);
+      });
+
+      if (!targetDiscardIndex && targetDiscardIndex !== 0) return state;
+
+      const targetTask = oldDiscardArr.splice(targetDiscardIndex, 1)[0];
+      const toDoArr = [...state['toDo'], targetTask];
+      return {
+        toDo: toDoArr,
+        done: oldDiscardArr,
+      };
 
     case REMOVE:
       return { te: 1 };
