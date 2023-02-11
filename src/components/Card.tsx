@@ -5,6 +5,7 @@ import { toDoDatasAtom } from '../atom';
 import { useRecoilState } from 'recoil';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
+import { done, discard, remove, addBy } from '../redux/modules/toDoDatas';
 import { RootState } from '../redux/modules';
 
 interface CardProps {
@@ -13,32 +14,16 @@ interface CardProps {
 }
 
 const Card = ({ data, boardKey }: CardProps) => {
-  const toDoReduxData = useSelector((state: RootState) => {
-    console.log(state.counter);
+  const dispatch = useDispatch();
+  const toDoDatasRedux = useSelector((state: RootState) => {
+    console.log(state);
   });
 
   const [toDoDatas, setToDoDatas] = useRecoilState(toDoDatasAtom);
   const { title, description } = data;
 
   const doneHandler = () => {
-    setToDoDatas((prev) => {
-      const oldData = { ...prev };
-      const oldArr = [...oldData['toDo']];
-      let targetIndex;
-
-      oldArr.map((v, i) => {
-        if (v.title === title) return (targetIndex = i);
-      });
-
-      if (!targetIndex && targetIndex !== 0) return prev;
-
-      const targetTask = oldArr.splice(targetIndex, 1)[0];
-      const doneArr = [...prev['done'], targetTask];
-      return {
-        toDo: oldArr,
-        done: doneArr,
-      };
-    });
+    dispatch(done({ title }));
   };
 
   const backHandler = () => {
