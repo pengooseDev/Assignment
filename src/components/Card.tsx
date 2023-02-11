@@ -4,6 +4,8 @@ import { task } from '../atom';
 import { toDoDatasAtom } from '../atom';
 import { useRecoilState } from 'recoil';
 import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { RootState } from '../redux/modules';
 
 interface CardProps {
   data: task;
@@ -11,6 +13,9 @@ interface CardProps {
 }
 
 const Card = ({ data, boardKey }: CardProps) => {
+  const toDoReduxData = useSelector((state: RootState) => {
+    console.log(state.counter);
+  });
   const [toDoDatas, setToDoDatas] = useRecoilState(toDoDatasAtom);
   const { title, description } = data;
 
