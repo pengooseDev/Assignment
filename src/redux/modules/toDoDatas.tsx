@@ -1,8 +1,8 @@
 /* Action types */
-const DONE = 'couter/DONE' as const;
-const DISCARD = 'counter/DISCARD' as const;
-const REMOVE = 'counter/REMOVE' as const;
-const ADD = 'counter/ADD' as const;
+const DONE = 'toDo/DONE' as const;
+const DISCARD = 'toDo/DISCARD' as const;
+const REMOVE = 'toDo/REMOVE' as const;
+const ADD = 'toDo/ADD' as const;
 
 interface addPayload {
   addTitle: string;
@@ -61,11 +61,6 @@ export interface toDoState {
 }
 
 /* 1. Initial State */
-
-export type CounterState = {
-  counter: number;
-};
-
 const initialToDos: toDoState = {
   toDo: [{ title: 'todo1', description: 'des1', id: new Date().getTime() }],
   done: [],
